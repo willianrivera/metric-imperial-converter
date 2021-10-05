@@ -13,19 +13,25 @@ module.exports = function (app) {
     }
     const initNum = convertHandler.getNum(input);
     const initUnit = convertHandler.getUnit(input);
+
+    if (initNum === "invalid number" && initUnit === "invalid unit") {
+      return res.send("invalid number and unit");
+    }
     if (initNum === "invalid number") {
       return res.send("invalid number");
     }
-    if( initUnit === "invalid unit"){
+    if (initUnit === "invalid unit") {
       return res.send("invalid unit");
     }
-    if( initNum === "invalid number" && initUnit === "invalid unit"){
-      return res.send("invalid unit and number");
-    }
-    
+
     const returnUnit = convertHandler.getReturnUnit(initUnit);
     const returnNum = convertHandler.convert(initNum, initUnit);
-    const string = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
-    res.json({ initNum, initUnit, returnNum, returnUnit, string});
+    const string = convertHandler.getString(
+      initNum,
+      initUnit,
+      returnNum,
+      returnUnit
+    );
+    res.json({ initNum, initUnit, returnNum, returnUnit, string });
   });
 };
