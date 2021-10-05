@@ -37,8 +37,8 @@ function ConvertHandler() {
   };
 
   this.getUnit = function (input) {
-    const letters = /[a-zA-Z]/;
-    const idx = input.split("").findIndex((char) => letters.test(char));
+    const englishAlphabet = /[a-zA-Z]/;
+    const idx = input.split("").findIndex((char) => englishAlphabet.test(char));
     if (idx < 0) {
       return "invalid unit";
     }
