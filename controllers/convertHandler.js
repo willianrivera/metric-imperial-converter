@@ -51,7 +51,7 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function (unit) {
-    if (unit === "L") return "L";
+    if (unit === "L" || unit === "l") return "L";
     if (units.hasOwnProperty(unit.toLowerCase())) {
       return unit.toLowerCase();
     }
