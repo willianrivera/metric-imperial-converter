@@ -79,7 +79,7 @@ suite("Unit Tests", function () {
 
   test("Testing invalid input unit", () => {
     assert.strictEqual(
-      convertHandler.getReturnUnit("invalidUnit"),
+      convertHandler.getUnit("2invalidUnit"),
       "invalid unit",
       "Correctly return error message for invalid input unit"
     );
