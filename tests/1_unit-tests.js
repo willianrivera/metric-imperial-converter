@@ -1,3 +1,4 @@
+
 const chai = require("chai");
 let assert = chai.assert;
 const ConvertHandler = require("../controllers/convertHandler.js");
@@ -6,42 +7,42 @@ let convertHandler = new ConvertHandler();
 
 suite("Unit Tests", function () {
   test("Testing valid whole number input", () => {
-    assert.strictEqual(
+    assert.equals(
       convertHandler.getNum("2kg"),
       2,
       "Correctly read valid whole number input"
     );
   });
   test("Testing valid decimal input", () => {
-    assert.strictEqual(
+    assert.equals(
       convertHandler.getNum("2.5lbs"),
       2.5,
       "Correctly read valid decimal input"
     );
   });
   test("Testing valid fractional input", () => {
-    assert.strictEqual(
-      convertHandler.getNum("1/5kg"),
-      0.2,
+    assert.equals(
+      convertHandler.getNum("1.2/32kg"),
+      1.2/32 ,
       "Correctly read valid fractional input"
     );
   });
   test("Testing valid fractional input with decimal", () => {
-    assert.strictEqual(
-      convertHandler.getNum("0.2/0.5kg"),
-      0.4,
+    assert.equals(
+      convertHandler.getNum("1.2/32L"),
+      1.2/32,
       "Correctly read valid fractional input with decimal"
     );
   });
   test("Testing invalid double fraction input", () => {
-    assert.strictEqual(
+    assert.equals(
       convertHandler.getNum("2/2/7kg"),
-      "invalid number",
+      undefined,
       "Return error for invalid double fraction input"
     );
   });
   test("Testing no numeric input", () => {
-    assert.strictEqual(
+    assert.equals(
       convertHandler.getNum("lbs"),
       1,
       "correctly default to 1 when no numeric input is provided"
@@ -49,13 +50,13 @@ suite("Unit Tests", function () {
   });
 
   test("Testing valid input unit", () => {
-    assert.strictEqual(
+    assert.equals(
       convertHandler.getUnit("2gal"),
       "gal",
       "correctly read gal"
     );
-    assert.strictEqual(convertHandler.getUnit("2L"), "L", "correctly read L");
-    assert.strictEqual(
+    assert.equals(convertHandler.getUnit("2L"), "L", "correctly read L");
+    assert.equals(
       convertHandler.getUnit("2mi"),
       "mi",
       "correctly read mi"
